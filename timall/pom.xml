@@ -92,6 +92,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatisplus-spring-boot-starter</artifactId>
@@ -148,6 +149,35 @@
 			<artifactId>log4j-api</artifactId>
 			<version>2.10.0</version>
 		</dependency>
+=======
+
+		<!--mybatis整合-->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+
+		<!--thymeleaf模板-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<!--web依赖-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!--mysql依赖-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!--测试类依赖-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -157,6 +187,7 @@
 					<groupId>org.junit.vintage</groupId>
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
+
 				<exclusion>
 					<groupId>junit</groupId>
 					<artifactId>junit</artifactId>
@@ -175,8 +206,11 @@
 			<version>RELEASE</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+			</exclusions>
+		</dependency>
 
+
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -185,6 +219,7 @@
 				<!--对应上边热部署的依赖使用-->
 				<configuration>
 					<includeSystemScope>true</includeSystemScope>
+					<!--fork:如果没有该项配置,整个devtools不会起作用-->
 					<fork>true</fork>
 				</configuration>
 			</plugin>
